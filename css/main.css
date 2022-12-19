@@ -1,11 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 body {
   font-family: "Raleway", sans-serif;
   color: #213053;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 header {
@@ -87,7 +85,7 @@ input {
   padding: 20px 25px;
   margin-top: 20px;
 }
-.about button > svg {
+.about button > i {
   text-align: center;
 }
 
@@ -115,7 +113,7 @@ input {
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 50px;
+  gap: 50px;
 }
 
 .card {
@@ -163,16 +161,16 @@ input {
 
 .features__feedback {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .features__feedback-left {
-  margin-right: 10px;
+  padding-right: 10px;
 }
 
 .features__feedback-left h2 {
   font-size: 48px;
 }
+
 .features__feedback-left p {
   font-size: 18px;
   line-height: 26px;
@@ -181,8 +179,7 @@ input {
 
 .features__feedback-right {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .features__box {
@@ -192,9 +189,9 @@ input {
 }
 
 .features__box h3 {
-  margin-top: 0;
-  margin-bottom: 20px;
   font-size: 48px;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 
 .features__savings-box {
@@ -212,6 +209,66 @@ input {
   color: #ff7039;
 }
 
+/*Стили блока промо*/
+.promo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.promo__image {
+  width: 50%;
+  background-image: url("./../img/promo.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+.promo__right {
+  background-color: #dd5f26;
+  padding: 160px 60px;
+}
+
+.promo__right__card {
+  background-color: #fff;
+  padding: 30px 40px;
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 500;
+  border-radius: 25px;
+}
+
+.promo__right__card p {
+  opacity: 0.8;
+}
+
+.promo__right__card p::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ec6b29;
+  margin-right: 10px;
+}
+
+.promo__right__card button {
+  background-color: #107b1c;
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.promo__right__card button > i {
+  margin-left: 5px;
+  font-size: 15px;
+}
+
+.promo__right__card__button {
+  display: flex;
+  justify-content: center;
+}
 /*Стили блока формы*/
 .form {
   display: flex;
@@ -393,6 +450,17 @@ footer {
     margin-bottom: 30px;
   }
 
+  .promo {
+    flex-direction: column-reverse;
+  }
+  .promo__image {
+    height: 500px;
+    width: 100%;
+  }
+
+  .promo__right {
+    padding: 50px 10px;
+  }
   .form {
     padding: 50px 10px;
   }
