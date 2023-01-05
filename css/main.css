@@ -1,5 +1,5 @@
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: #213053;
   margin: 0;
   padding: 0;
@@ -29,7 +29,7 @@ header a {
 }
 
 button {
-  font-family: "Raleway", sans—serif;
+  font-family: 'Raleway', sans—serif;
   font-size: 15px;
   color: #fff;
   background-color: #23a030;
@@ -63,9 +63,10 @@ input {
   align-items: center;
   padding-top: 115px;
   padding-bottom: 115px;
-  background: url("../img/back.png") no-repeat;
+  background: url('../img/back.png') no-repeat;
   background-position: center;
   background-size: cover;
+  position: relative;
 }
 
 .about h1 {
@@ -102,6 +103,14 @@ input {
   height: 100px;
   animation: rotation 10s linear infinite;
   position: absolute;
+}
+
+.orb-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
 }
 
 /*Стили блока преимуществ*/
@@ -217,7 +226,7 @@ input {
 
 .promo__image {
   width: 50%;
-  background-image: url("./../img/promo.jpg");
+  background-image: url('./../img/promo.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -243,7 +252,7 @@ input {
 }
 
 .promo__right__card p::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 10px;
   height: 10px;
