@@ -385,6 +385,10 @@ footer {
     padding: 115px 20px;
   }
 
+  .orb-canvas {
+    width: 100%;
+    height: 100%;
+  }
   .about h1 {
     font-size: 36px;
     line-height: 40px;
