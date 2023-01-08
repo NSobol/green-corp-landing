@@ -1,5 +1,14 @@
-const COLORS = ['255,108,80', '5,117,18', '29,39,57', '67,189,81'];
-const BUBBLE_DENSITY = 100;
+const COLORS = [
+  '255,108,80',
+  '5,117,18',
+  '29,39,57',
+  '67,189,81',
+  '15,88,219',
+  '40,201,59',
+  '21,232,211',
+  '242,113,0',
+];
+const BUBBLE_DENSITY = 200;
 
 function generateDecimalBetween(left, right) {
   return (Math.random() * (left - right) + right).toFixed(2);
@@ -19,12 +28,12 @@ class Bubble {
 
   init() {
     this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-    this.alpha = generateDecimalBetween(5, 10) / 10;
-    this.size = generateDecimalBetween(1, 3);
+    this.alpha = generateDecimalBetween(1, 10) / 10;
+    this.size = generateDecimalBetween(0.8, 1.8);
     this.translateX = generateDecimalBetween(0, this.canvasWidth);
     this.translateY = generateDecimalBetween(0, this.canvasHeight);
 
-    this.velocity = generateDecimalBetween(20, 40);
+    this.velocity = generateDecimalBetween(40, 90);
     this.movementX = generateDecimalBetween(-2, 2) / this.velocity;
     this.movementY = generateDecimalBetween(1, 20) / this.velocity;
   }
