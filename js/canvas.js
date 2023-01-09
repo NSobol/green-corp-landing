@@ -29,7 +29,7 @@ class Bubble {
   init() {
     this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
     this.alpha = generateDecimalBetween(1, 10) / 10;
-    this.size = generateDecimalBetween(0.2, 1);
+    this.size = generateDecimalBetween(0.5, 3);
     this.translateX = generateDecimalBetween(0, this.canvasWidth);
     this.translateY = generateDecimalBetween(0, this.canvasHeight);
 
@@ -85,7 +85,7 @@ class CanvasBackground {
         this.dprX = this.dpr;
         this.dprY = this.dpr;
       } else {
-        this.dprX = this.dpr * this.dpr;
+        this.dprX = this.dpr;
         this.dprY = this.dpr / this.dpr;
       }
       this.ctx.setTransform(this.dprX, 0, 0, this.dprY, 0, 0);
