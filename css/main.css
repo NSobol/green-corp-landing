@@ -262,7 +262,7 @@ input {
   margin-right: 10px;
 }
 
-.promo__right__card button {
+.promo__right__card > button {
   background-color: #107b1c;
   margin-top: 20px;
   padding: 15px 30px;
