@@ -20,3 +20,27 @@ function initIncreaseNumberAnimation() {
   increaseNumberAnimationStep(0, element, 5000);
 }
 initIncreaseNumberAnimation();
+
+document
+  .querySelector('#budget')
+  .addEventListener('change', function handleSelectChange(event) {
+    if (event.target.value === 'other') {
+      const formContainer = document.createElement('div');
+      formContainer.classList.add('form__group');
+      formContainer.classList.add('form__other-input');
+      const input = document.createElement('input');
+      input.placeholder = 'Введите ваш вариант';
+      input.type = 'text';
+      formContainer.appendChild(input);
+      const select = document.querySelector('.form form');
+      const btn = document.querySelector('.form__submit');
+      select.insertBefore(formContainer, btn);
+    }
+    const otherInput = document.querySelector('.form__other-input');
+    if (event.target.value !== 'other' && otherInput) {
+      // Удаляем ранее добавленное текстовое поле, если оно есть в DOM
+      const select = document.querySelector('.form form');
+      select.removeChild(otherInput);
+    }
+  });
+const elem = document.createElement('input');
