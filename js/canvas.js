@@ -8,7 +8,7 @@ const COLORS = [
   '21,232,211',
   '242,113,0',
 ];
-const BUBBLE_DENSITY = 200;
+const BUBBLE_DENSITY = 100;
 
 function generateDecimalBetween(left, right) {
   return (Math.random() * (left - right) + right).toFixed(2);
@@ -17,7 +17,9 @@ function generateDecimalBetween(left, right) {
 class Bubble {
   constructor(canvas) {
     this.canvas = canvas;
+
     this.getCanvasSize();
+
     this.init();
   }
 
@@ -28,12 +30,11 @@ class Bubble {
 
   init() {
     this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-    this.alpha = generateDecimalBetween(1, 10) / 10;
-    this.size = generateDecimalBetween(0.5, 1.5);
+    this.alpha = generateDecimalBetween(5, 10) / 10;
+    this.size = generateDecimalBetween(1, 3);
     this.translateX = generateDecimalBetween(0, this.canvasWidth);
     this.translateY = generateDecimalBetween(0, this.canvasHeight);
-
-    this.velocity = generateDecimalBetween(40, 90);
+    this.velocity = generateDecimalBetween(20, 40);
     this.movementX = generateDecimalBetween(-2, 2) / this.velocity;
     this.movementY = generateDecimalBetween(1, 20) / this.velocity;
   }
@@ -67,13 +68,15 @@ class CanvasBackground {
   }
 
   canvasSize() {
-    this.width = this.canvas.offsetWidth * this.dpr;
-    this.height = this.canvas.offsetHeight * this.dpr;
+    this.canvas.width = this.canvas.offsetWidth * this.dpr;
+    this.canvas.height = this.canvas.offsetHeight * this.dpr;
+
     this.ctx.scale(this.dpr, this.dpr);
   }
 
   animate() {
     this.ctx.clearRect(0, 0, this.canvas.clientWidth, this.canvas.clientHeight);
+
     this.bubblesList.forEach((bubble) => {
       bubble.move();
       this.ctx.translate(bubble.translateX, bubble.translateY);
@@ -81,15 +84,9 @@ class CanvasBackground {
       this.ctx.arc(0, 0, bubble.size, 0, 2 * Math.PI);
       this.ctx.fillStyle = 'rgba(' + bubble.color + ',' + bubble.alpha + ')';
       this.ctx.fill();
-      if (this.width / this.height > 1) {
-        this.dprX = this.dpr;
-        this.dprY = this.dpr;
-      } else {
-        this.dprX = this.dpr;
-        this.dprY = this.dpr / this.dpr;
-      }
-      this.ctx.setTransform(this.dprX, 0, 0, this.dprY, 0, 0);
+      this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     });
+
     requestAnimationFrame(this.animate.bind(this));
   }
 
