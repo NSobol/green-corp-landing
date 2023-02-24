@@ -8,7 +8,7 @@ const COLORS = [
   '21,232,211',
   '242,113,0',
 ];
-const BUBBLE_DENSITY = 100;
+const BUBBLE_DENSITY = 300;
 
 function generateDecimalBetween(left, right) {
   return (Math.random() * (left - right) + right).toFixed(2);
