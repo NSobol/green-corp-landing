@@ -62,3 +62,26 @@ document
     }
   });
 const elem = document.createElement('input');
+
+function addSmoothScroll(anchor) {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth',
+    });
+  });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  addSmoothScroll(anchor);
+});
+
+addSmoothScroll(document.querySelector('.more-button'));
+
+function onLinkClick(event) {
+  event.preventDefault();
+  document.querySelector(event.target.getAttribute('href')).scrollIntoView({
+    behavior: 'smooth',
+  });
+}
